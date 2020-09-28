@@ -97,117 +97,205 @@
             background-color: rgba(0, 0, 0, 0);
         }
 
-        @import url("https://fonts.googleapis.com/css?family=Cutive+Mono");
-        *,
-        *:before,
-        *:after {
-            box-sizing: border-box;
-        }
 
-        html {
-            overflow-x: hidden;
-        }
+        
 
-        label {
-            position: fixed;
-            z-index: 1000;
-            font-family: "Cutive Mono", serif;
-            font-size: 1.2em;
-            line-height: 1.6;
-            /* background: #CCC; */
-            overflow-x: hidden;
-        }
+#menu {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0px auto;
+  display: table;
+  position: fixed;
+  z-index: 1000;
+  /* margin-right: 1220px; */
+}
 
-        label .menu {
-            position: fixed;
-            right: -100px;
-            top: -100px;
-            z-index: 1000;
-            width: 200px;
-            height: 200px;
-            background: #FFF;
-            border-radius: 50% 50% 50% 50%;
-            -webkit-transition: .5s ease-in-out;
-            transition: .5s ease-in-out;
-            box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
-            cursor: pointer;
-        }
-        label .hamburger {
-            position: absolute;
-            top: 135px;
-            left: 50px;
-            width: 30px;
-            height: 2px;
-            background: #000;
-            display: block;
-            -webkit-transform-origin: center;
-                    transform-origin: center;
-            -webkit-transition: .5s ease-in-out;
-            transition: .5s ease-in-out;
-        }
+#menu-logo {
+  float: right;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 600;
+  padding: 20px 0px;
+}
+nav {
+  width: auto;
+  float: right;
+}
+nav ul {
+  display: table;
+  float: right;
+}
+nav ul li {
+  float: left;
+}
+nav ul li:last-child {
+  padding-right: 0px;
+}
+nav ul li a {
+  color: white;
+  font-size: 18px;
+  padding: 25px 20px;
+  display: inline-block;
+  transition: all 0.5s ease 0s;
+}
+nav ul li a:hover {
+  background-color: white;
+  color: black;
+  transition: all 0.5s ease 0s;
+}
+nav ul li a:hover i {
+  color: white;
+  transition: all 0.5s ease 0s;
+}
+nav ul li a i {
+  padding-right: 10px;
+  color: black;
+  transition: all 0.5s ease 0s;
+}
 
-        label .hamburger:after, label .hamburger:before {
-            -webkit-transition: .5s ease-in-out;
-            transition: .5s ease-in-out;
-            content: "";
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
+.toggle-menu ul {
+  display: table;
+  width: 25px;
+}
+.toggle-menu ul li {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  margin-bottom: 4px;
+}
+.toggle-menu ul li:last-child {
+  margin-bottom: 0px;
+}
 
-        label .hamburger:before {
-            top: -10px;
-        }
+input[type="checkbox"],
+label {
+  display: none;
+}
 
-        label .hamburger:after {
-            bottom: -10px;
-        }
 
-        label input {
-            display: none;
-        }
 
-        label input:checked + .menu {
-            box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
-            border-radius: 0;
-        }
-        label input:checked + .menu .hamburger {
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-        label input:checked + .menu .hamburger:after {
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-            bottom: 0;
-        }
-        label input:checked + .menu .hamburger:before {
-            -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-            top: 0;
-        }
-        label input:checked + .menu + ul {
-            opacity: 1;
-        }
-        label ul {
-            z-index: 2000;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
-            opacity: 0;
-            -webkit-transition: .25s 0s ease-in-out;
-            transition: .25s 0s ease-in-out;
-        }
-        label a {
-            margin-bottom: 1em;
-            display: block;
-            color: #000;
-            text-decoration: none;
-        }
+@media only screen and (max-width: 1440px) {
+  #menu {
+    max-width: 95%;
+  }
+}
 
+@media only screen and (max-width: 980px) {
+  header {
+    padding: 20px 0px;
+  }
+  #logo {
+    padding: 0px;
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    background: none;
+  }
+  input[type="checkbox"]:fous {
+    background: none;
+  }
+  label {
+    float: right;
+    padding: 8px 0px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  input[type="checkbox"]:checked ~ nav {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 53px;
+    background-color: white;
+    padding: 0px;
+    z-index: 99;
+  }
+  nav ul {
+    width: auto;
+  }
+  nav ul li {
+    float: none;
+    padding: 0px;
+    width: 100%;
+    display: table;
+  }
+  nav ul li a {
+    color: black;
+    font-size: 15px;
+    padding: 10px 20px;
+    display: block;
+    border-bottom: 1px solid rgba(225, 225, 225, 0.1);
+  }
+  nav ul li a i {
+    color: black;
+    padding-right: 13px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+/*   .content {
+    width: 90%;
+  } */
+}
+
+@media only screen and (max-width: 568px) {
+/*   h1 {
+    padding: 25px 0px;
+  }
+  h1 span {
+    display: block;
+  } */
+}
+
+@media only screen and (max-width: 480px) {
+  section {
+    max-width: 90%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  h1 {
+    font-size: 20px;
+  }
+  label {
+    padding: 5px 0px;
+  }
+  #logo {
+    font-size: 20px;
+  }
+  nav {
+    top: 47px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+/*   h1 {
+    padding: 20px 0px;
+  } */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width:100%;
+  /* background-color: DodgerBlue; */
+  margin:10px;
+}
+
+.flex-container > img {
+  width: 200px;
+  margin: 10px;
+  /* text-align: center; */
+  /* line-height: 75px; */
+  /* font-size: 30px; */
+}
+       
     </style>
     <!--  New Colour Pagination -->
 
@@ -218,23 +306,22 @@
 <body>
 
     <!-- MENU -->
-    <label>
-        <input type='checkbox'>
-        <span class='menu'>
-          <span class='hamburger'></span>
-        </span>
+    <section id="menu">
+
+        <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
+        <input type="checkbox" id="toggle-1">
+        
+        <nav>
         <ul type="none">
-          <li>
-            <a href='#'>Home</a>
-          </li>
-          <li>
-            <a href='#'>About</a>
-          </li>
-          <li>
-            <a href='#'>Work</a>
-          </li>
+        <li><a style="text-decoration: none;" href="./"><i class="icon-home"></i>Home</a></li>
+        <li><a style="text-decoration: none;" href="#products"><i class="icon-user"></i>Products</a></li>
+        <li><a style="text-decoration: none;" href="#use"><i class="icon-thumbs-up-alt"></i>Use</a></li>
+        <li><a style="text-decoration: none;" href="#review"><i class="icon-gear"></i>Reviews</a></li>
+        <li><a style="text-decoration: none;" href="#contact"><i class="icon-phone"></i>Contact</a></li>
         </ul>
-    </label>
+        </nav>
+        </section>
+        
     <!-- MENU -->
 
     
@@ -344,12 +431,12 @@
         <div class="empty-space col-xs-b35 col-md-b70"></div>
         <!-- Products Tab Beginning -->
 
-        <div class="slider-wrapper">
+        <div class="slider-wrapper" id="products">
             <div class="swiper-container" data-parallax="1" data-auto-height="1">
                 <div class="swiper-wrapper">
 
 
-                    <div class="swiper-slide" style="background-image: url(img/latest/NormalBlack.png);">
+                    <div class="swiper-slide fixed-background" style="background-image: url(img/latest/NormalBlack.png);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -702,7 +789,7 @@
         <div class="empty-space col-xs-b35 col-md-b70"></div>
         <!-- 3 Tab Information Beginning -->
         <!-- <div class="fixed-background" style="background-image: url(img/latest/attribute_background.png);"> -->
-        <div class="fixed-background" style="background-image: url(img/latest/attribute_background.png);">
+        <div id="use" class="fixed-background" style="background-image: url(img/latest/attribute_background.png);">
             <div class="block-entry">
                 <div class="container">
                     <div class="row page-height">
@@ -789,7 +876,7 @@
         <!-- Profosserionals Tab Beginning -->
         <div class="empty-space col-xs-b35 col-md-b70"></div>
 
-        <div class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);">
+        <div id="review" class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);">
             <div class="block-entry">
                 <div class="container">
                     <div class="row">
@@ -803,8 +890,18 @@
 
 
                                     <div id="button size-2 style-2">
-                                        <button id="playme" onclick="revealVideo('video','youtube')">See Reviews</button>
+                                        <button id="playme" onclick="show()">See Reviews</button>
                                     </div>
+
+                                    <div class="flex-container">
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />   
+                                    </div>
+
+
+
                                     <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
                                         <div class="lightbox-container">
                                             <div class="lightbox-content">
@@ -816,21 +913,10 @@
                                                     <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
                                                 </div>
 
-                                                <div class="video-container" style="margin-top: 100px;">
-                                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
-                                                </div>
-
-                                                <div class="video-container" style="margin-top: 100px;">
-                                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
-                                                </div>
-
-                                                <div class="video-container" style="margin-top: 100px;">
-                                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <!-- <a class="button size-2 style-1" href="reviews.html">
                                     <span class="button-wrapper">
@@ -852,7 +938,7 @@
 
 
         <!-- FOOTER -->
-        <footer>
+        <footer id="contact">
             <div class="fixed-background" style="background-image: url(img/latest/Footer.png);">
                 <div class="block-entry">
                     <div class="container">
@@ -910,10 +996,18 @@
             </div>
         </footer>
     </div>
-
+    
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/swiper.jquery.min.js"></script>
     <script src="js/global.js"></script>
+
+    <script>
+        $(".flex-container").hide();
+        function show(){
+            $(".flex-container").toggle();
+        }
+        
+    </script>
 
     <!-- styled select -->
     <script src="js/jquery.sumoselect.min.js"></script>

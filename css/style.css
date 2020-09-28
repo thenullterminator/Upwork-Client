@@ -184,7 +184,7 @@ footer,
 header,
 hgroup,
 menu,
-nav,
+nava,
 output,
 ruby,
 section,
@@ -221,7 +221,7 @@ figure,
 header,
 hgroup,
 menu,
-nav,
+nava,
 section {
     display: none;
 }
@@ -234,7 +234,7 @@ figure,
 header,
 hgroup,
 menu,
-nav,
+nava,
 section {
     display: none;
 }
@@ -2606,32 +2606,32 @@ li:hover .megamenu {
 }
 
 @media (min-width: 992px) {
-    .nav-wrapper {
+    .nava-wrapper {
         height: inherit;
         display: inline-block;
         vertical-align: top;
     }
-    nav {
+    nava {
         height: inherit;
     }
-    nav ul ul {
+    nava ul ul {
         display: block!important;
     }
-    nav a {
+    nava a {
         -webkit-border-radius: 16px;
         transition: all .3s;
         -webkit-transition: all .15s;
     }
-    nav>ul {
+    nava>ul {
         height: inherit;
     }
-    nav>ul>li {
+    nava>ul>li {
         position: relative;
         display: inline-block;
         vertical-align: top;
         height: inherit;
     }
-    nav>ul>li>a {
+    nava>ul>li>a {
         font-size: 11px;
         line-height: 16px;
         color: #fff;
@@ -2645,27 +2645,27 @@ li:hover .megamenu {
         top: 50%;
         margin-top: -16px;
     }
-    nav>ul>li>a:hover,
-    nav>ul>li.active>a {
+    nava>ul>li>a:hover,
+    nava>ul>li.active>a {
         background-color: #343434;
         -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
         box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
         color: #fff;
     }
     /**/
-    nav>ul>li>ul {
+    nava>ul>li>ul {
         transform: translateY(-100%);
         -webkit-transform: translateY(-100%);
         transition: all .3s;
         -webkit-transition: all .3s;
         opacity: 0;
     }
-    nav>ul>li:hover>ul {
+    nava>ul>li:hover>ul {
         transform: translateY(0%);
         -webkit-transform: translateY(-0%);
         opacity: 1;
     }
-    nav ul ul {
+    nava ul ul {
         position: absolute;
         width: 165px;
         left: 0;
@@ -2679,12 +2679,12 @@ li:hover .megamenu {
         border-radius: 0 0 5px 5px;
         -webkit-border-radius: 0 0 5px 5px;
     }
-    nav ul ul li {
+    nava ul ul li {
         padding: 0 20px 0 19px;
         position: relative;
         left: 1px;
     }
-    nav ul ul a {
+    nava ul ul a {
         font-size: 10px;
         text-transform: uppercase;
         font-weight: 700;
@@ -2693,12 +2693,12 @@ li:hover .megamenu {
         display: block;
         padding: 8px 0;
     }
-    nav ul ul a:hover,
-    nav ul ul>li.active>a {
+    nava ul ul a:hover,
+    nava ul ul>li.active>a {
         color: #343434;
     }
     /**/
-    nav ul ul ul {
+    nava ul ul ul {
         left: 100%;
         top: 0;
         z-index: 0;
@@ -2712,13 +2712,13 @@ li:hover .megamenu {
         transition: all .3s;
         -webkit-transition: all .3s;
     }
-    nav ul ul>li:hover ul {
+    nava ul ul>li:hover ul {
         transform: perspective(1000px) rotateY(0deg);
         -webkit-transform: perspective(1000px) rotateY(0deg);
         opacity: 1;
     }
     /**/
-    .navigation-title {
+    .navaigation-title {
         display: none;
     }
     /**/
@@ -2797,7 +2797,7 @@ li:hover .megamenu {
     .hamburger-icon {
         display: block;
     }
-    .nav-wrapper {
+    .nava-wrapper {
         position: fixed;
         left: 100%;
         top: -100px;
@@ -2808,22 +2808,22 @@ li:hover .megamenu {
         transition: all 0s .3s;
         -webkit-transition: all 0s .3s;
     }
-    .nav-wrapper.active {
+    .nava-wrapper.active {
         left: 0;
         transition: all 0s 0s;
         -webkit-transition: all 0s 0s;
     }
-    nav ul ul {
+    nava ul ul {
         display: none;
     }
-    nav li {
+    nava li {
         position: relative;
     }
-    nav a {
+    nava a {
         display: block;
         position: relative;
     }
-    .nav-close-layer {
+    .nava-close-layer {
         position: absolute;
         left: 0;
         top: 0;
@@ -2834,10 +2834,10 @@ li:hover .megamenu {
         -webkit-transition: all .3s;
         opacity: 0;
     }
-    .nav-wrapper.active .nav-close-layer {
+    .nava-wrapper.active .nava-close-layer {
         opacity: 1;
     }
-    nav {
+    nava {
         position: absolute;
         width: 300px;
         top: 0;
@@ -2849,11 +2849,11 @@ li:hover .megamenu {
         transition: all .3s;
         -webkit-transition: all .3s;
     }
-    .nav-wrapper.active nav {
+    .nava-wrapper.active nava {
         transform: translateX(0%);
         -webkit-transform: translateX(0%);
     }
-    nav>ul {
+    nava>ul {
         position: absolute;
         top: 150px;
         bottom: 100px;
@@ -2863,10 +2863,10 @@ li:hover .megamenu {
         -webkit-overflow-scrolling: touch;
         padding: 15px;
     }
-    nav>ul>li {
+    nava>ul>li {
         margin-bottom: 10px;
     }
-    nav>ul>li>a {
+    nava>ul>li>a {
         font-size: 12px;
         line-height: 16px;
         color: #343434;
@@ -2879,15 +2879,15 @@ li:hover .megamenu {
         -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
         box-shadow: 1px 1px 2px rgba(0, 0, 0, .1);
     }
-    nav>ul>li.active>a {
+    nava>ul>li.active>a {
         background-color: #343434;
         color: #fff;
     }
-    nav ul ul {
+    nava ul ul {
         padding-left: 30px;
     }
     /**/
-    nav ul ul a {
+    nava ul ul a {
         font-size: 11px;
         text-transform: uppercase;
         font-weight: 700;
@@ -2896,15 +2896,15 @@ li:hover .megamenu {
         display: block;
         padding: 12px 0 10px 0;
     }
-    nav>ul>li>ul>li>a {
+    nava>ul>li>ul>li>a {
         padding-right: 45px;
     }
-    nav ul ul ul a {
+    nava ul ul ul a {
         font-size: 11px;
         padding: 8px 0;
         position: relative;
     }
-    nav ul ul ul a:before {
+    nava ul ul ul a:before {
         width: 10px;
         content: "";
         height: 1px;
@@ -2915,7 +2915,7 @@ li:hover .megamenu {
         margin-right: 10px;
         position: relative;
     }
-    nav ul ul>li.active>a {
+    nava ul ul>li.active>a {
         color: #343434;
     }
     /**/
@@ -2928,10 +2928,10 @@ li:hover .megamenu {
         cursor: pointer;
         color: #888;
     }
-    nav>ul>li.active>.menu-toggle {
+    nava>ul>li.active>.menu-toggle {
         color: #fff;
     }
-    nav>ul>li>ul>li.active>.menu-toggle {
+    nava>ul>li>ul>li.active>.menu-toggle {
         color: #343434;
     }
     .menu-toggle:before {
@@ -2959,7 +2959,7 @@ li:hover .megamenu {
         top: 19px;
     }
     /**/
-    .navigation-title {
+    .navaigation-title {
         display: block;
         position: absolute;
         width: 100%;
