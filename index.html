@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Questrial|Raleway:700,900" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/swiper.css" rel="stylesheet" type="text/css" />
+    <link href="css/sumoselect.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!--  New Colour Pagination -->
+    <style>
+
+        div.swiper-pagination-bullets span:nth-child(1) {
+            background-color: black;
+            margin: 8px;
+        }
+        
+        div.swiper-pagination-bullets span:nth-child(2) {
+            background-color: #341c02;
+            margin: 8px;
+        }
+        
+        div.swiper-pagination-bullets span:nth-child(3) {
+            background-color: #1d0200;
+            margin: 8px;
+        }
+        
+        div.swiper-pagination-bullets span:nth-child(4) {
+            background-color: #3c0008;
+            margin: 8px;
+        }
+
+        @media only screen and (min-width: 450px) {
+            div.swiper-pagination-bullets span:nth-child(1):before{
+                content: " Natural Black ";
+                font-size: 10px;
+                color:white;
+            }
+
+            div.swiper-pagination-bullets span:nth-child(2):before{
+                content: "Medium Brown";
+                font-size: 10px;
+                color:white;
+            }
+
+            div.swiper-pagination-bullets span:nth-child(3):before{
+                content: "Brown Black";
+                font-size: 10px;
+                color:white;
+            }
+
+            div.swiper-pagination-bullets span:nth-child(4):before{
+                content: "Natural Brown";
+                font-size: 10px;
+                color:white;
+            }
+
+            .swiper-pagination-bullet{
+                width: 101px;
+                height: 30px;
+                /* display: inline-block; */
+                border-radius: 10%;
+            }
+
+            div.swiper-pagination-bullets span:nth-child(1) {
+                margin-right: 32px;
+            }
+            
+            div.swiper-pagination-bullets span:nth-child(2) {
+                margin-right: 32px;
+            }
+            
+            div.swiper-pagination-bullets span:nth-child(3) {
+                margin-right: 32px;
+            }
+            
+            div.swiper-pagination-bullets span:nth-child(4) {
+                margin-right: 32px;
+            }
+        }
+        
+        
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            border: white 0px !important;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        @import url("https://fonts.googleapis.com/css?family=Cutive+Mono");
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        label {
+            position: fixed;
+            z-index: 1000;
+            font-family: "Cutive Mono", serif;
+            font-size: 1.2em;
+            line-height: 1.6;
+            /* background: #CCC; */
+            overflow-x: hidden;
+        }
+
+        label .menu {
+            position: fixed;
+            right: -100px;
+            top: -100px;
+            z-index: 1000;
+            width: 200px;
+            height: 200px;
+            background: #FFF;
+            border-radius: 50% 50% 50% 50%;
+            -webkit-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+            box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
+            cursor: pointer;
+        }
+        label .hamburger {
+            position: absolute;
+            top: 135px;
+            left: 50px;
+            width: 30px;
+            height: 2px;
+            background: #000;
+            display: block;
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+        }
+
+        label .hamburger:after, label .hamburger:before {
+            -webkit-transition: .5s ease-in-out;
+            transition: .5s ease-in-out;
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+
+        label .hamburger:before {
+            top: -10px;
+        }
+
+        label .hamburger:after {
+            bottom: -10px;
+        }
+
+        label input {
+            display: none;
+        }
+
+        label input:checked + .menu {
+            box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
+            border-radius: 0;
+        }
+        label input:checked + .menu .hamburger {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        label input:checked + .menu .hamburger:after {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            bottom: 0;
+        }
+        label input:checked + .menu .hamburger:before {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            top: 0;
+        }
+        label input:checked + .menu + ul {
+            opacity: 1;
+        }
+        label ul {
+            z-index: 2000;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+            opacity: 0;
+            -webkit-transition: .25s 0s ease-in-out;
+            transition: .25s 0s ease-in-out;
+        }
+        label a {
+            margin-bottom: 1em;
+            display: block;
+            color: #000;
+            text-decoration: none;
+        }
+
+    </style>
+    <!--  New Colour Pagination -->
+
+    <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Quick Touch Hair Color</title>
+</head>
+
+<body>
+
+    <label>
+        <input type='checkbox'>
+        <span class='menu'>
+          <span class='hamburger'></span>
+        </span>
+        <ul type="none">
+          <li>
+            <a href='#'>Home</a>
+          </li>
+          <li>
+            <a href='#'>About</a>
+          </li>
+          <li>
+            <a href='#'>Work</a>
+          </li>
+        </ul>
+  </label>
+
+
+    
+
+    <!-- LOADER -->
+    <div id="loader-wrapper"></div>
+
+    <div id="content-block" >
+
+       
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-bottom">
+                <div class="content-margins">
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-1">
+                            <a id="logo" href="index.html"><img src="img/logo-2.png" alt="" /></a>
+                        </div>
+
+                        <div class=" col-xs-3 col-sm-1 text-right">
+
+                            
+                            
+                            <!-- <div class="content-margins">
+                                <div class="nav-wrapper">
+                                    <div class="nav-close-layer"></div>
+                                    <nav>
+                                        <ul>
+                                            <li>
+                                                <a href="reviews.html">Reviews</a>
+                                            </li>
+                                        </ul>
+                                        <div class="navigation-title">
+                                            Navigation
+                                            <div class="hamburger-icon active">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 col-md-text-right">
+                                        <div class="hamburger-icon">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+
+        <!-- Header Image Beginning -->
+
+        <div class="fixed-background" style="background-image: url(img/latest/Header.png);">
+            <div class="block-entry">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-sm-text-center">
+                            <div class="cell-view page-height">
+                                <div class="col-xs-b40 col-sm-b80"></div>
+                                <div data-swiper-parallax-x="-600">
+                                    <div class="simple-article light transparent size-3">
+                                        <a id="logo" href="index.html"><img src="img/logo-2.png" alt="" /></a>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="col-xs-b5"></div>
+                                </div>
+                                <div data-swiper-parallax-x="-500">
+                                    <h1 class="h1 light">One Minute Magic</h1>
+                                    <div class="title-underline light left"><span></span></div>
+                                </div>
+                                <div data-swiper-parallax-x="-400">
+                                    <div class="simple-article size-4 light transparent">
+                                        <h5 class="h1 light">Colouring hair has never been easier.</h5>
+                                        <p> <br>With Quick Touch's One Minute Magic and its natural and superior ingredients,<br> you get the desired results within 1-3 minutes every single time. <br> <br> No dripping down the face. No Itchy Scalp.
+                                            <b>Just Pure Results</b>.</p>
+                                    </div>
+                                    <div class="col-xs-b30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <span class="icon"><img src="img/latest/white-scroll.png">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Header Image Ending -->
+        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        <!-- Products Tab Beginning -->
+
+        <div class="slider-wrapper">
+            <div class="swiper-container" data-parallax="1" data-auto-height="1">
+                <div class="swiper-wrapper">
+
+
+                    <div class="swiper-slide fixed-background" style="background-image: url(img/latest/NormalBlack.png);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="cell-view page-height">
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                        <div data-swiper-parallax-x="-600">
+                                            <div class="simple-article light transparent size-3">Quick Touch</div>
+                                            <div class="col-xs-b5"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-500">
+                                            <h1 class="h1 light">Natural Black</h1>
+                                            <div class="title-underline light left"><span></span></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-400">
+                                            <div class="simple-article size-4 light transparent">
+                                                <p>Get your hair coloured in a minute and shine your way through<br> with our protective conditioning. Improve strength, moisture and<br> smoothness with our natural and non-toxic repair agents.</p>
+                                                <ul>
+                                                    <li>Patented Dye Enhancer</li>
+                                                    <li>No Ammonia</li>
+                                                    <li>Natural Herb Oils</li>
+                                                    <li>Aloe Vera Gel</li>
+                                                    <li>Olive Oil</li>
+                                                    <li>Castor Oil</li>
+                                                </ul>
+
+                                                <h3 class="h1 light">700 <i class="fa fa-rupee" style="font-size:24px"></i></h3>
+
+                                                <!-- Colour Code Beginnning-->
+
+                                                <div class=" buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets">
+                                                    <!-- <span >UIhfisduhfsiuhf</span> -->
+                                                    osidjdsoigjoigjfdoigjoi
+                                                </div>
+                                                <!-- <div class="buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"> -->
+                                                <!-- <a class="button size-2 style-2 swiper-pagination-bullet">
+                                                        <span class="button-wrapper"></span>
+                                                    </a> -->
+                                                <!-- <a class="button size-2 style-3 swiper-pagination-bullet">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Brown</span>
+                                                        </span>
+                                                    </a> -->
+                                                <!-- </div> -->
+
+                                                <!-- Colour Code Ending -->
+                                                <br>
+                                            </div>
+                                            <div class="col-xs-b30"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-300">
+                                            <div class="preview-buttons">
+                                                <div class="buttons-wrapper">
+                                                    <a class="button size-2 style-2" href="https://www.amazon.in" target="_blank">
+                                                        <span class="button-wrapper">
+                                                            <span class="icon"><img src="img/latest/amazon_icon.png" alt=""></span>
+                                                        <span class="text">Amazon</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://www.flipkart.com" target="_blank">
+                                                        <span class="button-wrapper">
+                                                            <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Flipkart</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://minarwebstore.com" target="_blank">
+                                                        <span class="button-wrapper color-shade-origin">
+                                                            <span class="icon"><img src="img/latest/webstore.png" alt=""></span>
+                                                        <span class="text">Visit Webstore</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-product-preview" data-swiper-parallax-x="-600">
+                                <img src="img/latest/Product1.png" alt="" />
+                            </div>
+                            <div class="empty-space col-xs-b80 col-sm-b0"></div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="swiper-slide" style="background-image: url(img/latest/MediumBrown.png);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 ">
+                                    <div class="cell-view page-height">
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                        <div data-swiper-parallax-x="-600">
+                                            <div class="simple-article light transparent size-3">Quick Touch</div>
+                                            <div class="col-xs-b5"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-500">
+                                            <h1 class="h1 light">Medium Brown</h1>
+                                            <div class="title-underline light left"><span></span></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-400">
+                                            <div class="simple-article size-4 light transparent">
+                                                <p>Get your hair coloured in a minute and shine your way through<br> with our protective conditioning. Improve strength, moisture and<br> smoothness with our natural and non-toxic repair agents.</p>
+                                                <ul>
+                                                    <li>Patented Dye Enhancer</li>
+                                                    <li>No Ammonia</li>
+                                                    <li>Natural Herb Oils</li>
+                                                    <li>Aloe Vera Gel</li>
+                                                    <li>Olive Oil</li>
+                                                    <li>Castor Oil</li>
+                                                </ul>
+
+                                                <h3 class="h1 light">700 <i class="fa fa-rupee" style="font-size:24px"></i></h3>
+                                                <!-- Colour Code Beginnning-->
+
+                                                <div class=" buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"></div>
+                                                <!-- <div class="buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"> -->
+                                                <!-- <a class="button size-2 style-2 swiper-pagination-bullet">
+                                                        <span class="button-wrapper"></span>
+                                                    </a> -->
+                                                <!-- <a class="button size-2 style-3 swiper-pagination-bullet">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Brown</span>
+                                                        </span>
+                                                    </a> -->
+                                                <!-- </div> -->
+
+                                                <!-- Colour Code Ending -->
+                                                <br>
+
+                                            </div>
+                                            <div class="col-xs-b30"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-300">
+                                            <div class="preview-buttons">
+                                                <div class="buttons-wrapper">
+                                                    <a class="button size-2 style-2" href="https://www.amazon.in" target="_blank">
+                                                        <span class="button-wrapper">
+                                                            <span class="icon"><img src="img/latest/amazon_icon.png" alt=""></span>
+                                                        <span class="text">Amazon</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://www.flipkart.com" target="_blank">
+                                                        <span class="button-wrapper">
+                                                            <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Flipkart</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://minarwebstore.com" target="_blank">
+                                                        <span class="button-wrapper color-shade-origin">
+                                                            <span class="icon"><img src="img/latest/webstore.png" alt=""></span>
+                                                        <span class="text">Visit Webstore</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-product-preview align-right" data-swiper-parallax-x="-600">
+                                <img src="img/latest/Product2.png" alt="" />
+                            </div>
+                            <div class="empty-space col-xs-b80 col-sm-b0"></div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="swiper-slide" style="background-image: url(img/latest/BrownBlack.png);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="cell-view page-height">
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                        <div data-swiper-parallax-x="-600">
+                                            <div class="simple-article light transparent size-3">Quick Touch</div>
+                                            <div class="col-xs-b5"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-500">
+                                            <h1 class="h1 light">Brown Black</h1>
+                                            <div class="title-underline light left"><span></span></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-400">
+                                            <div class="simple-article size-4 light transparent">
+                                                <p>Get your hair coloured in a minute and shine your way through<br> with our protective conditioning. Improve strength, moisture and<br> smoothness with our natural and non-toxic repair agents.</p>
+                                                <ul>
+                                                    <li>Patented Dye Enhancer</li>
+                                                    <li>No Ammonia</li>
+                                                    <li>Natural Herb Oils</li>
+                                                    <li>Aloe Vera Gel</li>
+                                                    <li>Olive Oil</li>
+                                                    <li>Castor Oil</li>
+                                                </ul>
+
+                                                <h3 class="h1 light">700 <i class="fa fa-rupee" style="font-size:24px"></i></h3>
+                                                <!-- Colour Code Beginnning-->
+
+                                                <div class=" buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"></div>
+                                                <!-- <div class="buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"> -->
+                                                <!-- <a class="button size-2 style-2 swiper-pagination-bullet">
+                                                        <span class="button-wrapper"></span>
+                                                    </a> -->
+                                                <!-- <a class="button size-2 style-3 swiper-pagination-bullet">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Brown</span>
+                                                        </span>
+                                                    </a> -->
+                                                <!-- </div> -->
+
+                                                <!-- Colour Code Ending -->
+                                                <br>
+
+                                            </div>
+                                            <div class="col-xs-b30"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-300">
+                                            <div class="preview-buttons">
+                                                <div class="buttons-wrapper">
+                                                    <a class="button size-2 style-2" href="https://www.amazon.in" target="_blank">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/amazon_icon.png" alt=""></span>
+                                                        <span class="text">Amazon</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://www.flipkart.com" target="_blank">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Flipkart</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://minarwebstore.com" target="_blank">
+                                                        <span class="button-wrapper color-shade-origin">
+                                                            <span class="icon"><img src="img/latest/webstore.png" alt=""></span>
+                                                        <span class="text">Visit Webstore</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-product-preview" data-swiper-parallax-x="-600">
+                                <img src="img/latest/Product3.png" alt="" />
+                            </div>
+                            <div class="empty-space col-xs-b80 col-sm-b0"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="swiper-slide" style="background-image: url(img/latest/NaturalBrown.png);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 ">
+                                    <div class="cell-view page-height">
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                        <div data-swiper-parallax-x="-600">
+                                            <div class="simple-article light transparent size-3">Quick Touch</div>
+                                            <div class="col-xs-b5"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-500">
+                                            <h1 class="h1 light">Natural Brown</h1>
+                                            <div class="title-underline light left"><span></span></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-400">
+                                            <div class="simple-article size-4 light transparent">
+                                                <p>Get your hair coloured in a minute and shine your way through<br> with our protective conditioning. Improve strength, moisture and<br> smoothness with our natural and non-toxic repair agents.</p>
+                                                <ul>
+                                                    <li>Patented Dye Enhancer</li>
+                                                    <li>No Ammonia</li>
+                                                    <li>Natural Herb Oils</li>
+                                                    <li>Aloe Vera Gel</li>
+                                                    <li>Olive Oil</li>
+                                                    <li>Castor Oil</li>
+                                                </ul>
+
+                                                <h3 class="h1 light">700 <i class="fa fa-rupee" style="font-size:24px"></i></h3>
+                                                <!-- Colour Code Beginnning-->
+
+                                                <div class=" buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"></div>
+                                                <!-- <div class="buttons-wrapper swiper-pagination swiper-pagination-white swiper-pagination-swiper-unique-id-0 swiper-pagination-clickable swiper-pagination-bullets"> -->
+                                                <!-- <a class="button size-2 style-2 swiper-pagination-bullet">
+                                                        <span class="button-wrapper"></span>
+                                                    </a> -->
+                                                <!-- <a class="button size-2 style-3 swiper-pagination-bullet">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Brown</span>
+                                                        </span>
+                                                    </a> -->
+                                                <!-- </div> -->
+
+                                                <!-- Colour Code Ending -->
+                                                <br>
+                                            </div>
+                                            <div class="col-xs-b30"></div>
+                                        </div>
+                                        <div data-swiper-parallax-x="-300">
+                                            <div class="preview-buttons">
+                                                <div class="buttons-wrapper">
+                                                    <a class="button size-2 style-2" href="https://www.amazon.in" target="_blank">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/amazon_icon.png" alt=""></span>
+                                                        <span class="text">Amazon</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://www.flipkart.com" target="_blank">
+                                                        <span class="button-wrapper">
+                                                        <span class="icon"><img src="img/latest/flipkar_icon.png" alt=""></span>
+                                                        <span class="text">Flipkart</span>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button size-2 style-3" href="https://minarwebstore.com" target="_blank">
+                                                        <span class="button-wrapper color-shade-origin">
+                                                            <span class="icon"><img src="img/latest/webstore.png" alt=""></span>
+                                                        <span class="text">Visit Webstore</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-b40 col-sm-b80"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-product-preview align-right" data-swiper-parallax-x="-600">
+                                <img src="img/latest/Product4.png" alt="" />
+                            </div>
+                            <div class="empty-space col-xs-b80 col-sm-b0"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+
+
+        <!-- Products Tab Ending -->
+
+        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        <!-- 3 Tab Information Beginning -->
+        <!-- <div class="fixed-background" style="background-image: url(img/latest/attribute_background.png);"> -->
+        <div class="fixed-background" style="background-image: url(img/latest/attribute_background.png);">
+            <div class="block-entry">
+                <div class="container">
+                    <div class="row page-height">
+                        <div class="col-md-6 col-xs-b30 col-md-b0" style="top: 240px">
+                            <div class="banner-shortcode style-3 rounded-image text-center" style="background-image: url(img/latest/Ease_of_use.png);">
+                                <div class="valign-middle-cell">
+                                    <div class="valign-middle-content">
+                                        <div class="simple-article size-3 light transparent uppercase col-xs-b5">Quick Application</div>
+                                        <h3 class="h3 light"><a href="#">Ease Of Use</a></h3>
+                                        <div class="title-underline center"><span></span></div>
+                                        <div class="simple-article size-3 light transparent col-xs-b30">Our Dye comes in a creamy form which helps to eradicate common issues like dye dripping down the face and body.</div>
+                                        <a class="button size-2 style-1" href="https://www.youtube.com/watch?v=14WdRniRk5U&" target="_blank">
+                                            <span class="button-wrapper">
+                                        <span class="icon"><img src="img/latest/youtube.png" alt=""></span>
+                                            <span class="text">View Usage</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="top: 240px">
+                            <div class="banner-shortcode style-5 rounded-image" style="background-image: url(img/latest/upper.png);">
+                                <div class="valign-middle">
+                                    <div class="valign-middle-content">
+                                        <div class="simple-article size-3 light transparent uppercase col-xs-b5">Hair Care</div>
+                                        <h4 class="h4 light col-xs-b5"><a href="#">Smooth as silk</a></h4>
+                                        <div class="simple-article size-3 light transparent col-xs-b30">Our unique natural ingredients make the hair softer and silky.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-space col-xs-b30"></div>
+                            <div class="swiper-container rounded">
+
+
+                                <div class="swiper-button-prev active"><i style="z-index:100;color:white;font-size: 23px;position: relative;top:17px;left:31px" class="fa fa-chevron-left"></i></div>
+                                <div class="swiper-button-next active"><i style="z-index:100;color:white;font-size: 23px;position: relative;top:17px;left:16px" class="fa fa-chevron-right"></i></div>
+
+
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="banner-shortcode style-5" style="background-image: url(img/latest/lower.png);">
+                                            <div class="valign-middle">
+                                                <div class="valign-middle-content">
+                                                    <div class="simple-article size-3 light transparent uppercase col-xs-b5">Extreme Care</div>
+                                                    <h4 class="h4 light col-xs-b5"><a href="#">No Ammonia</a></h4>
+                                                    <div class="simple-article size-3 light transparent col-xs-b30">We take great care in providing results without using any chemicals that harm your hair</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-shortcode style-5" style="background-image: url(img/latest/lower.png);">
+                                            <div class="valign-middle">
+                                                <div class="valign-middle-content">
+                                                    <div class="simple-article size-3 light transparent uppercase col-xs-b5">Natural ingredients</div>
+                                                    <h4 class="h4 light col-xs-b5"><a href="#">Herbal Oils</a></h4>
+                                                    <div class="simple-article size-3 light transparent col-xs-b30">Our products consists of natural ingredients such as Olive oil extracts & Aloe Vera gel.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-shortcode style-5" style="background-image: url(img/latest/lower.png);">
+                                            <div class="valign-middle">
+                                                <div class="valign-middle-content">
+                                                    <div class="simple-article size-3 light transparent uppercase col-xs-b5">Use Of Advanced ingredients</div>
+                                                    <h4 class="h4 light col-xs-b5"><a href="#">Collagen</a></h4>
+                                                    <div class="simple-article size-2 light transparent col-xs-b30">Collagen helps prevent damage to cells that produce hair color and prevents premature graying & slow down age-related graying</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 3 Tab Information Ending -->
+
+
+        <!-- Profosserionals Tab Beginning -->
+        <div class="empty-space col-xs-b35 col-md-b70"></div>
+
+        <div class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);">
+            <div class="block-entry">
+                <div class="container">
+                    <div class="row">
+                        <div class="cell-view page-height">
+                            <div class="col-sm-6">
+                                <div class="cell-view simple-banner-height big">
+                                    <div class="empty-space col-xs-b35"></div>
+                                    <h2 class="h1 light">Trusted by thousands around the world</h2>
+                                    <div class="title-underline left light"><span></span></div>
+                                    <div class="simple-article light size-4 col-xs-b30">Choice Of The Professionals</div>
+
+
+                                    <div id="button size-2 style-2">
+                                        <button id="playme" onclick="revealVideo('video','youtube')">See Reviews</button>
+                                    </div>
+                                    <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
+                                        <div class="lightbox-container">
+                                            <div class="lightbox-content">
+
+                                                <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+                                          Close | ✕
+                                        </button>
+                                                <div class="video-container">
+                                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <a class="button size-2 style-1" href="reviews.html">
+                                    <span class="button-wrapper">
+                                        <span class="icon"><img src="img/icon-1.png" alt=""></span>
+                                    <span class="text">See Reviews</span>
+                                    </span> -->
+                                </a>
+                                <div class="empty-space col-xs-b35"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Professionals Tab Ending -->
+        <div class="empty-space col-xs-b35 col-md-b70"></div>
+
+
+
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="fixed-background" style="background-image: url(img/latest/Footer.png);">
+                <div class="block-entry">
+                    <div class="container">
+                        <div class="footer-top">
+                            <div class="row">
+                                <div class="cell-view page-height">
+                                    <div class="text-left" class="col-sm-6 col-md-3 col-xs-b30 col-md-b0">
+                                        <div class="empty-space col-xs-b20"></div>
+                                        <div class="simple-article size-4 light fulltransparent">Our Contacts in India</div>
+                                        <div class="empty-space col-xs-b20"></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-mobile" aria-hidden="true"></i> Mobile: <a href="tel:+919072953344">+91 90729 53344</a></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-envelope-o" aria-hidden="true"></i> Email: <a href="mailto:trading@minarenterprises.com">trading@minarenterprises.com</a></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-map-marker" aria-hidden="true"></i> Address: <a>Ekminutedye.com
+                                463, 17th C Main Rd,
+                                5th Block, Koramangala,
+                                Bengaluru – 560095, INDIA</a></div>
+                                    </div>
+                                    <br>
+                                    <div class="text-left" class="col-sm-6 col-md-3 col-xs-b30 col-md-b0">
+                                        <div class="empty-space col-xs-b20"></div>
+                                        <div class="simple-article size-4 light fulltransparent">Our Contacts in Middel East</div>
+                                        <div class="empty-space col-xs-b20"></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-mobile" aria-hidden="true"></i> Mobile/WhatsApp: <a href="+971543373755">+97154 3373755</a></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-envelope-o" aria-hidden="true"></i> email: <a href="mailto:trading@minarenterprises.com">trading@minarenterprises.com</a></div>
+                                        <div class="footer-contact simple-article size-2"><i class="fa fa-map-marker" aria-hidden="true"></i> address: <a>Minar Webstore,
+                                Po Box 26986,
+                                Sharjah, UAE</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-bottom">
+                                <div class="row">
+                                    <div class="col-lg-8 col-xs-text-center col-lg-text-left col-xs-b20 col-lg-b0">
+                                        <div class="copyright">&copy; 2020 All rights reserved. <a href="https://minarwebstore.com/" target="_blank">MinarWebstore</a></div>
+                                        <div class="follow">
+                                            <a class="entry" href="https://www.facebook.com/quicktouch.ae" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a class="entry" href="https://twitter.com/Quicktouchme" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a class="entry" href="https://www.instagram.com/quicktouch.ae/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                            <a class="entry" href="https://www.youtube.com/c/Hairocraft/featured/" target="_blank"><i class="fa fa-youtube"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-xs-text-center col-lg-text-right">
+                                        <div class="footer-payment-icons">
+                                            <a class="entry"><img src="img/thumbnail-6.jpg" alt="" /></a>
+                                            <a class="entry"><img src="img/thumbnail-7.jpg" alt="" /></a>
+                                            <a class="entry"><img src="img/thumbnail-8.jpg" alt="" /></a>
+                                            <a class="entry"><img src="img/thumbnail-9.jpg" alt="" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/global.js"></script>
+
+    <!-- styled select -->
+    <script src="js/jquery.sumoselect.min.js"></script>
+
+    <!-- counter -->
+    <script src="js/jquery.classycountdown.js"></script>
+    <script src="js/jquery.knob.js"></script>
+    <script src="js/jquery.throttle.js"></script>
+
+    <!-- Whatsapp Float -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=+971543373755." class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
+</body>
+
+</html>
