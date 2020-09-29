@@ -157,13 +157,14 @@ nav ul li a i {
 
 .toggle-menu ul {
   display: table;
-  width: 25px;
+  width: 35px;
 }
 .toggle-menu ul li {
   width: 100%;
-  height: 3px;
+  height: 4px;
   background-color: white;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
+  border-radius: 15%;
 }
 .toggle-menu ul li:last-child {
   margin-bottom: 0px;
@@ -182,7 +183,7 @@ label {
   }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (min-width: 370px) {
   header {
     padding: 20px 0px;
   }
@@ -195,11 +196,13 @@ label {
     left: -9999px;
     background: none;
   }
-  input[type="checkbox"]:fous {
+  input[type="checkbox"]:focus {
     background: none;
   }
   label {
     float: right;
+    margin-top:69px;
+    margin-right: 60px;
     padding: 8px 0px;
     display: inline-block;
     cursor: pointer;
@@ -211,11 +214,12 @@ label {
   nav {
     display: none;
     position: absolute;
-    right: 0px;
-    top: 53px;
+    right: 10px;
+    top: 103px;
     background-color:  #343434;
     padding: 0px;
     z-index: 99;
+    /* border-radius: 12%; */
   }
   nav ul {
     width: auto;
@@ -237,6 +241,16 @@ label {
     color: black;
     padding-right: 13px;
   }
+}
+
+@media only screen and (max-width: 775px) {
+  
+  label {
+    margin-top:41px;
+    margin-right: 16px;
+    
+  }
+  
 }
 
 @media only screen and (max-width: 980px) {
@@ -329,7 +343,7 @@ label {
         <li><a style="text-decoration: none;" href="#contact"><i class="icon-phone"></i>Contact</a></li>
         </ul>
         </nav>
-        </section>
+    </section>
 
         <!-- <div class="nav-wrapper">
             <div class="nav-close-layer"></div>
@@ -934,23 +948,38 @@ label {
                                     </div>
 
                                     <div class="flex-container">
-                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
-                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
-                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />
-                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video','youtube')"  src="./img/Reviews/Abhishek.jpg" />   
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video1','youtube')"  src="./img/Reviews/Abhishek.jpg" />
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video2','youtube')"  src="./img/Reviews/Samar.jpg" />
+                                        <!-- <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video3','youtube')"  src="./img/Reviews/Abhishek.jpg" />
+                                        <img id="playme2" style="cursor: pointer;" onclick="revealVideo('video4','youtube')"  src="./img/Reviews/Abhishek.jpg" />    -->
                                     </div>
+                                    
+                                    
 
-
-
-                                    <div id="video" class="lightbox" onclick="hideVideo('video','youtube')">
+                                    <div id="video1" class="lightbox" onclick="hideVideo('video1','youtube')">
                                         <div class="lightbox-container">
                                             <div class="lightbox-content">
 
-                                                <button onclick="hideVideo('video','youtube')" class="lightbox-close">
+                                                <button onclick="hideVideo('video1','youtube')" class="lightbox-close">
                                           Close | ✕
                                         </button>
                                                 <div class="video-container" style="margin-top: 100px;">
                                                     <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/videoseries?list=PL1SmEoyepxVpaHpTmkuV-Ko3X4rirwuJY" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="video2" class="lightbox" onclick="hideVideo('video2','youtube')">
+                                        <div class="lightbox-container">
+                                            <div class="lightbox-content">
+
+                                                <button onclick="hideVideo('video2','youtube')" class="lightbox-close">
+                                          Close | ✕
+                                        </button>
+                                                <div class="video-container" style="margin-top: 100px;">
+                                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/Lu56xVlZ40M" frameborder="0" allowfullscreen></iframe>
                                                 </div>
 
                                             </div>
