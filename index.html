@@ -19,6 +19,7 @@
 
     <!--  New Colour Pagination -->
     <style>
+        
 
         div.swiper-pagination-bullets span:nth-child(1) {
             background-color: black;
@@ -212,7 +213,7 @@ label {
     position: absolute;
     right: 0px;
     top: 53px;
-    background-color: white;
+    background-color:  #343434;
     padding: 0px;
     z-index: 99;
   }
@@ -226,7 +227,7 @@ label {
     display: table;
   }
   nav ul li a {
-    color: black;
+    color: white
     font-size: 15px;
     padding: 10px 20px;
     display: block;
@@ -295,6 +296,14 @@ label {
   /* line-height: 75px; */
   /* font-size: 30px; */
 }
+
+/* .swiper-slide,.swiper-slide-visible, .swiper-slide-active {
+    background-attachment: inherit !important;
+} */
+
+.parallex-window{
+    overflow-x: hidden;
+}
        
     </style>
     <!--  New Colour Pagination -->
@@ -321,6 +330,38 @@ label {
         </ul>
         </nav>
         </section>
+
+        <!-- <div class="nav-wrapper">
+            <div class="nav-close-layer"></div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="reviews.html">Reviews</a>
+                    </li>
+                    <li>
+                        <a href="reviews.html">Reviews</a>
+                    </li>
+                </ul>
+                <div class="navigation-title">
+                    Navigation
+                    <div class="hamburger-icon active">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-md-7 col-md-text-right">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div> -->
         
     <!-- MENU -->
 
@@ -343,10 +384,8 @@ label {
                         </div>
 
                         <div class=" col-xs-3 col-sm-1 text-right">
-
-                            
-                            
-                            <!-- <div class="content-margins">
+<!-- 
+                            <div class="content-margins">
                                 <div class="nav-wrapper">
                                     <div class="nav-close-layer"></div>
                                     <nav>
@@ -376,18 +415,16 @@ label {
                                 </div>
                             </div> -->
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </header>
 
         
-
         <!-- Header Image Beginning -->
-
-        <div class="fixed-background" style="background-image: url(img/latest/Header.png);">
+        <!-- class="fixed-background" -->
+        <!-- style="background-image: url(img/latest/Header.png);" -->
+        <div class="fixed-background" style="background-image: url(img/latest/Header.png);" >
             <div class="block-entry">
                 <div class="container">
                     <div class="row">
@@ -431,12 +468,13 @@ label {
         <div class="empty-space col-xs-b35 col-md-b70"></div>
         <!-- Products Tab Beginning -->
 
-        <div class="slider-wrapper " id="products">
+        <div class="slider-wrapper  " id="products">
+
             <div class="swiper-container" data-parallax="1" data-auto-height="1">
                 <div class="swiper-wrapper">
 
-
-                    <div class="swiper-slide fixed-background " style="background-image: url(img/latest/NormalBlack.png);">
+                    <!-- style="background-image: url(img/latest/NormalBlack.png);z-index:1" -->
+                    <div class="swiper-slide"  style="background-image: url(img/latest/NormalBlack.png);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -525,7 +563,7 @@ label {
 
 
 
-                    <div class="swiper-slide" style="background-image: url(img/latest/MediumBrown.png);">
+                    <div class="swiper-slide " style="background-image: url(img/latest/MediumBrown.png);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 ">
@@ -695,7 +733,7 @@ label {
                     </div>
 
 
-                    <div class="swiper-slide" style="background-image: url(img/latest/NaturalBrown.png);">
+                    <div class="swiper-slide " style="background-image: url(img/latest/NaturalBrown.png);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 ">
@@ -789,7 +827,8 @@ label {
         <div class="empty-space col-xs-b35 col-md-b70"></div>
         <!-- 3 Tab Information Beginning -->
         <!-- <div class="fixed-background" style="background-image: url(img/latest/attribute_background.png);"> -->
-        <div id="use" class="fixed-background" style="background-image: url(img/latest/attribute_background.png);">
+            <!-- class="fixed-background" style="background-image: url(img/latest/attribute_background.png);" -->
+        <div id="use" class="fixed-background" style="background-image: url(img/latest/attribute_background.png);" >
             <div class="block-entry">
                 <div class="container">
                     <div class="row page-height">
@@ -875,8 +914,9 @@ label {
 
         <!-- Profosserionals Tab Beginning -->
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-
-        <div id="review" class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);">
+        <!-- class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);" -->
+        
+        <div id="review" class="fixed-background" style="background-image: url(img/latest/background_professional.jpg);" >
             <div class="block-entry">
                 <div class="container">
                     <div class="row">
@@ -938,11 +978,12 @@ label {
 
 
         <!-- FOOTER -->
-        <footer id="contact">
-            <div class="fixed-background" style="background-image: url(img/latest/Footer.png);">
-                <div class="block-entry">
+        <footer  >
+            <!-- " -->
+            <div id="contact" class="fixed-background" style="background-image: url(img/latest/Footer.png);">
+                <div class="block-entry" >
                     <div class="container">
-                        <div class="footer-top">
+                        <div class="footer-top" >
                             <div class="row">
                                 <div class="cell-view page-height">
                                     <div class="text-left" class="col-sm-6 col-md-3 col-xs-b30 col-md-b0">
@@ -1006,8 +1047,18 @@ label {
         function show(){
             $(".flex-container").toggle();
         }
+
+//         $( "#book" ).load(function() {
+//   // Handler for .load() called.
+// });
+        $(".swiper-pagination-bullet").load(function(){
+            console.log("hi");
+            alert("Hi");
+        });
+        // $(".swiper-slide-active").addClass("fixed-background");
     </script>
 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
     <!-- styled select -->
     <script src="js/jquery.sumoselect.min.js"></script>
 
@@ -1015,6 +1066,8 @@ label {
     <script src="js/jquery.classycountdown.js"></script>
     <script src="js/jquery.knob.js"></script>
     <script src="js/jquery.throttle.js"></script>
+    
+    <script src="/js/parallax.min.js"></script>
 
     <!-- Whatsapp Float -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
